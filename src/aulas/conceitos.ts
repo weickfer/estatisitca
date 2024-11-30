@@ -1,6 +1,6 @@
-import { amplitude } from "../functions/amplitude"
+import { Amplitude } from "../functions/amplitude"
 import { accumulatedFrequency, accumulatedRelativeFrequency, prettierFrequency, realFrequency, relativeFrequency } from "../functions/frequency"
-import { sigma } from "../functions/sigma"
+import { Sigma } from "../functions/sigma"
 
 const notas = [
   7, 5, 9,  5, 8, 5, 8, 9, 10, 8,
@@ -20,6 +20,6 @@ const Fr = accumulatedRelativeFrequency(fr)
 
 
 console.table(prettierFrequency(Fr))
-console.log('Amplitude: ', amplitude(leite))
-console.log('Total frequência: ', sigma(fr, 'frequency'))
-console.log('Total frequência relativa: ', sigma(fr, 'relative'))
+console.log('Amplitude: ', Amplitude(leite))
+console.log('Total frequência: ', Sigma(fr, 'frequency'))
+console.log('Total frequência relativa: ', Sigma(fr, 'relative'))

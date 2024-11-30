@@ -1,12 +1,12 @@
 import { fix } from "../utils/fix"
-import { rall } from "./rall"
-import { sigma } from "./sigma"
+import { Rall } from "./rall"
+import { Sigma } from "./sigma"
 
-export function realFrequency(data: number[]) {
-  const unique = rall([...new Set(data)])
+export function realFrequency(data: number[], condition = (current: number, item: number) => item === current) {
+  const unique = Rall([...new Set(data)])
   return unique.map(value => ({
     item: value,
-    frequency: data.filter(v => v === value).length
+    frequency: data.filter(item => condition(value, item)).length
   }))
 }
 
@@ -26,7 +26,7 @@ export function accumulatedFrequency(data: RealFrequency) {
 }
 
 export function relativeFrequency(data: RealFrequency) {
-  const total = sigma(data, 'frequency')
+  const total = Sigma(data, 'frequency')
   const calculate = (value: number) => (value / total) * 100
 
   return data.map(value => ({

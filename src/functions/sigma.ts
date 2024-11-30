@@ -1,11 +1,11 @@
 import { isObject } from "../types/is"
 
 
-export function sigma(data: number[] | Record<string, any>[], key?: string) {
+export function Sigma(data: number[] | Record<string, any>[], key?: string) {
   const element = data[0]
 
   if(typeof element !== 'number' && key) {
-    return sigma(
+    return Sigma(
       data.map(object => {
         if(isObject(object)) {
           return object[key]
